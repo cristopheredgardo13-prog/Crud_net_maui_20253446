@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+  <AppNetVersion Condition="'$(AppNetVersion)' == ''">9.0</AppNetVersion>
+  <MauiControlsVersion Condition="'$(MauiControlsVersion)' == ''">9.0.120</MauiControlsVersion>
+  <TargetFrameworks>net$(AppNetVersion)-android;net$(AppNetVersion)-windows10.0.19041.0</TargetFrameworks>
+  <OutputType>Exe</OutputType><RootNamespace>Crud_net_maui_20253446</RootNamespace>
+  <UseMaui>true</UseMaui><SingleProject>true</SingleProject>
+  <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
+  <ApplicationTitle>Crud_net_maui_20253446</ApplicationTitle>
+  <ApplicationId>com.estudiante.clientes20253446</ApplicationId>
+  <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion><ApplicationVersion>1</ApplicationVersion>
+  <WindowsPackageType>None</WindowsPackageType>
+  <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+  <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+  <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+ </PropertyGroup>
+ <ItemGroup>
+  <MauiIcon Include="Resources/AppIcon/appicon.svg" ForegroundFile="Resources/AppIcon/appiconfg.svg" Color="#512BD4" />
+  <MauiSplashScreen Include="Resources/Splash/splash.svg" Color="#512BD4" BaseSize="128,128" />
+  <MauiImage Include="Resources/Images/*" /><MauiFont Include="Resources/Fonts/*" />
+  <MauiAsset Include="Resources/Raw/**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiControlsVersion)" />
+  <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.2" />
+ </ItemGroup>
+</Project>

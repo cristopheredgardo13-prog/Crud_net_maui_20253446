@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Crud_net_maui_20253446" x:Class="Crud_net_maui_20253446.MainPage" Title="Clientes — CRUD">
+ <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="12">
+ <VerticalStackLayout Grid.Row="0" Spacing="6">
+ <Label Text="Clientes — CRUD" FontSize="26" FontAttributes="Bold" />
+ <Label Text="Carnet: 20253446 · SQLite local" />
+ <Label x:Name="ModeLabel" Text="Nuevo registro" FontAttributes="Bold" />
+ <Label Text="Nombre" /><Entry x:Name="NameEntry" Placeholder="Nombre del cliente" MaxLength="120" />
+ <Label Text="Correo electrónico" /><Entry x:Name="EmailEntry" Placeholder="cliente@ejemplo.com" Keyboard="Email" MaxLength="254" />
+ <Label Text="Teléfono" /><Entry x:Name="PhoneEntry" Placeholder="Ejemplo: 71234567" Keyboard="Telephone" MaxLength="25" />
+ <HorizontalStackLayout Spacing="10">
+ <Button x:Name="SaveButton" Text="Guardar" Clicked="SaveClicked" />
+ <Button x:Name="CancelButton" Text="Limpiar" Clicked="CancelClicked" BackgroundColor="#696078" />
+ </HorizontalStackLayout>
+ </VerticalStackLayout>
+ <Label Grid.Row="1" x:Name="StatusLabel" Text="Cargando registros…" />
+ <Label Grid.Row="2" Text="Toca un registro para editarlo o eliminarlo." />
+ <CollectionView Grid.Row="3" x:Name="Records" SelectionMode="Single" SelectionChanged="RecordSelected">
+ <CollectionView.EmptyView><Label Text="No hay registros guardados." Padding="10" /></CollectionView.EmptyView>
+ <CollectionView.ItemTemplate><DataTemplate x:DataType="local:Cliente">
+ <Border Padding="12" Margin="0,0,0,8" BackgroundColor="White" Stroke="#DED9EB">
+ <VerticalStackLayout Spacing="3"><Label Text="{Binding Id, StringFormat='Registro #{0}'}" FontSize="12" /><Label Text="{Binding NombreCliente}" FontSize="18" FontAttributes="Bold" /><Label Text="{Binding Email}" /><Label Text="{Binding Movil}" /></VerticalStackLayout>
+ </Border></DataTemplate></CollectionView.ItemTemplate>
+ </CollectionView>
+ </Grid>
+</ContentPage>
